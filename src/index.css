@@ -1,3 +1,11 @@
+:root {
+  --Desktop-fixed-width: 935px;
+
+
+  --Story-poster-width: 614px;
+  --Suggestion-width: 293px;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,9 +13,96 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #FAFAFA;
+
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+@font-face {
+  font-family: 'icomoon';
+  src: url('./assets/fonts/icomoon.eot?fa8wvb');
+  src: url('./assets/fonts/icomoon.eot?fa8wvb#iefix') format('embedded-opentype'),
+    url('./assets/fonts/icomoon.ttf?fa8wvb') format('truetype'),
+    url('./assets/fonts/icomoon.woff?fa8wvb') format('woff'),
+    url('./assets/fonts/icomoon.svg?fa8wvb#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+
+.icon-comment:before {
+  content: "\e907";
+}
+
+.icon-emoji:before {
+  content: "\e908";
+}
+
+.icon-newMessage:before {
+  content: "\e909";
+}
+
+.icon-option:before {
+  content: "\e90a";
+}
+
+.icon-save:before {
+  content: "\e90b";
+}
+
+.icon-share:before {
+  content: "\e90c";
+}
+
+.icon-Activity_Feed:before {
+  content: "\e900";
+}
+
+.icon-Find_people:before {
+  content: "\e901";
+}
+
+.icon-Home_fill:before {
+  content: "\e902";
+}
+
+.icon-Messenger:before {
+  content: "\e903";
+}
+
+.icon-New_post:before {
+  content: "\e904";
+}
+
+.icon-dots-three-horizontal:before {
+  content: "\e906";
+}
+
+.icon-chevron-right:before {
+  content: "\e905";
+}
+
+.icon-search1:before {
+  content: "\1f305";
 }

@@ -1,0 +1,109 @@
+.Secondary {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.Secondary-profile {
+    max-height: 106px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 20px 0;
+}
+
+.Secondary-profile div:first-child {
+    display: flex;
+    gap: 24px;
+}
+
+.Profile-pic {
+    width: 56px;
+    height: 56px;
+
+}
+
+.Profile-pic img {
+    width: 100%;
+    border-radius: 100%;
+    background-color: white;
+}
+
+.Profile-name {
+    font-size: 14px;
+    line-height: 18px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.Secondary-text-heading {
+    font-weight: bold;
+}
+
+.Secondary-text-sub {
+    color: #8E8E8E;
+}
+
+.btn {
+    color: #0095F6;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+
+.Suggestion {
+    display: flex;
+    justify-content: space-between;
+}
+
+.Suggestion-title {
+    font-size: 14px;
+    font-weight: 600;
+
+    line-height: 18px;
+    color: #8E8E8E;
+}
+
+.Suggestion-btn {
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.Follow {
+    padding: 8px 0;
+    margin: 8px 0;
+}
+
+.Follow-item {
+    display: flex;
+    gap: 8px;
+    padding: 8px 0;
+    align-items: center;
+}
+
+.Follow-pic {
+    width: 32px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.Follow-pic img {
+    width: 100%;
+    border-radius: 100%;
+}
+
+.Follow-name-other {
+    flex-grow: 6;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.Follow-name {}
+
+.Follow-other {}

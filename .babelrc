@@ -1,0 +1,24 @@
+{
+    "presets": [
+        "@babel/preset-env",
+        "@babel/preset-react"
+    ],
+    "plugins": [
+        [
+            "module-resolver",
+            {
+                "extensions": [
+                    ".js",
+                    ".jsx"
+                ],
+                "root": [
+                    "./src"
+                ],
+                "alias": {
+                    "root": ".",
+                    "src": "/src"
+                }
+            }
+        ]
+    ]
+}

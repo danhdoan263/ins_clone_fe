@@ -1,0 +1,24 @@
+.Home-user {
+    display: grid;
+
+    column-gap: 28px;
+    justify-content: center;
+
+    grid-template-columns: var(--Story-poster-width) var(--Suggestion-width);
+    grid-template-rows: 118px 1fr;
+    grid-template-areas:
+        "Story-section Suggesstion"
+        "Poster Suggesstion"
+    ;
+    margin-top: 27px;
+}
+
+
+.Poster {
+    grid-area: Poster;
+    height: calc(100vh - 53px - 118px - 27px);
+}
+
+.Suggesstion {
+    grid-area: Suggesstion;
+}

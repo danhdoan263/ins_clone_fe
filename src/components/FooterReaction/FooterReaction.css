@@ -1,0 +1,83 @@
+.Poster-fotter {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 0px 0px 1px rgba(97, 97, 97, 0.13);
+
+}
+
+.footer-reaction {
+    height: 54px;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: var(--padding-footer);
+}
+
+.left-reaction {
+    display: flex;
+    gap: 16px;
+
+}
+
+.reaction-size {
+    font-size: 24px;
+
+}
+
+.footer-liked {
+    height: 18px;
+    font-weight: bold;
+    padding: 0 var(--padding-footer);
+
+}
+
+.User-Comment {
+    font-size: 14px;
+    padding: 0 var(--padding-footer);
+
+}
+
+.User-name {
+    margin-right: 7px;
+    font-weight: bold;
+}
+
+.footer-comment {}
+
+.footer-comment>details>summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 0 var(--padding-footer);
+
+}
+
+.footer-add-comment {
+    display: flex;
+    height: 52px;
+    align-items: center;
+    gap: 16px;
+    box-shadow: 0px 0px 0px 1px rgba(97, 97, 97, 0.13);
+    padding: 0 var(--padding-footer);
+
+}
+
+.icon-emoji {
+    font-size: 24px;
+}
+
+.footer-add-comment input {
+    flex-grow: 8;
+    height: 40px;
+    border: none;
+    font-size: 18px;
+
+}
+
+.footer-add-comment input:focus::placeholder {
+    color: transparent;
+
+}
+
+.footer-add-comment input:focus {
+    outline: none;
+}

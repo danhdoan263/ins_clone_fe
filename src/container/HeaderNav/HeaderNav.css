@@ -19,6 +19,10 @@
     gap: 22px;
     font-size: 22px;
 }
+.wrapper-menu a{
+    text-decoration: none;
+    color: black;
+}
 
 .wrapper-menu>img {
     width: 22px;

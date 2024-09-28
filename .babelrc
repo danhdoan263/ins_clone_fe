@@ -12,11 +12,12 @@
                     ".jsx"
                 ],
                 "root": [
-                    "./src"
+                    "src"
                 ],
                 "alias": {
-                    "root": ".",
-                    "src": "/src"
+                    "@components/*":"src/components/*",
+                    "@assets/*":"src/assets/*"
+
                 }
             }
         ]

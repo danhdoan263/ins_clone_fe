@@ -24,7 +24,7 @@
     position: absolute;
     right: 16px;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-70%);
 }
 
 .Story {
@@ -36,24 +36,16 @@
     align-items: center;
     justify-content: space-evenly;
     overflow-x: auto;
+    scroll-behavior: smooth;
 }
+.Story div{
 
-.item {
-    width: fit-content;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    border-radius: 100%;
-    padding: 2.5px;
-    margin-left: 14px;
-    background: linear-gradient(to bottom, #DE0046, #F7A34B) no-repeat;
+    text-align: center;
+    font-size: 12px;
 }
-
-.item img {
-    width: 56px;
-    border-radius: 100px;
-    padding: 2.5px;
-    background-color: white;
+.Short-name{
+    width: 80px;
+    white-space: nowrap;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
 }

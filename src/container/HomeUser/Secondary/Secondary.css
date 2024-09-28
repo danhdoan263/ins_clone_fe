@@ -48,11 +48,26 @@
 }
 
 .btn {
+    border: none;
+    background-color: transparent;
     color: #0095F6;
     font-weight: 600;
     font-size: 12px;
     line-height: 16px;
+
+    margin:0;
+    padding: 0;
+
 }
+.btn:focus{
+    outline: none;
+}
+.Suggestion-btn{
+    border: none;
+    background-color: transparent;
+    color: black ;
+}
+
 
 
 .Suggestion {

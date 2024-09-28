@@ -1,0 +1,20 @@
+.item {
+    width: 62px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 100%;
+    padding: 2.5px;
+    margin-left: 7px;
+    margin-right: 7px;
+    background: linear-gradient(to bottom, #DE0046, #F7A34B) no-repeat;
+}
+
+.item img {
+    width: 56px;
+    border-radius: 100px;
+    padding: 2.5px;
+    background-color: white;
+}

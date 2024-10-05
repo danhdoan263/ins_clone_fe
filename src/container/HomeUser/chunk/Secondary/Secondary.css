@@ -18,27 +18,6 @@
     gap: 24px;
 }
 
-.Profile-pic {
-    width: 56px;
-    height: 56px;
-
-}
-
-.Profile-pic img {
-    width: 100%;
-    border-radius: 100%;
-    background-color: white;
-}
-
-.Profile-name {
-    font-size: 14px;
-    line-height: 18px;
-
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
 .Secondary-text-heading {
     font-weight: bold;
 }

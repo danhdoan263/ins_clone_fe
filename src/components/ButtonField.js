@@ -1,13 +1,13 @@
 import React from "react";
-import PropsType from "prop-types";
+import PropTypes from "prop-types";
 
 const ButtonField = ({
-  children,
+  children = "button default",
   onClick,
   type = "button",
   disabled = false,
   className = "",
-  loading,
+  loading = false,
 }) => {
   return (
     <button
@@ -15,25 +15,20 @@ const ButtonField = ({
       onClick={onClick}
       disabled={disabled}
       className={`button ${className}`}
-      loading={loading}
+      loading="false"
     >
-      {children}
+      {loading ? "Loading..." : children}
     </button>
   );
 };
 //set type props
 ButtonField.PropsType = {
-  children: PropsType.node.isRequired,
-  onclick: PropsType.func,
-  type: PropsType.oneOf[("button", "submit", "reset")],
-  disabled: PropsType.bool,
-  className: PropsType.string,
-  loading: PropsType.bool,
-};
-//set default value props
-ButtonField.defaultProps = {
-  children: "button defaultaaaa",
-  loading: false,
+  children: PropTypes.node.isRequired,
+  onclick: PropTypes.func,
+  type: PropTypes.oneOf[("button", "submit", "reset")],
+  disabled: PropTypes.bool,
+  className: PropTypes.string,
+  loading: PropTypes.bool,
 };
 
 export default ButtonField;

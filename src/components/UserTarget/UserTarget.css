@@ -1,0 +1,27 @@
+.userTarget{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+}
+.Profile-pic {
+    width: 56px;
+    height: 56px;
+
+}
+
+.Profile-pic img {
+    width: 100%;
+    border-radius: 100%;
+    background-color: white;
+}
+
+.Profile-name {
+    width: 60%;
+    font-size: 14px;
+    line-height: 18px;
+
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 8px;
+}

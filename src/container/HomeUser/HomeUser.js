@@ -1,8 +1,8 @@
 import React from "react";
 import "./HomeUser.css";
-import StorySection from "container/HomeUser/StorySection/StorySection";
-import Poster from "container/HomeUser/Poster/Poster";
-import Secondary from "container/HomeUser/Secondary/Secondary";
+import StorySection from "container/HomeUser/chunk/StorySection/StorySection";
+import Poster from "container/HomeUser/chunk/Poster/Poster";
+import Secondary from "container/HomeUser/chunk/Secondary/Secondary";
 const HomeUser = () => {
   return (
     <div className="Home-user">

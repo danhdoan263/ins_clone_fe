@@ -5,4 +5,7 @@
   grid-template-areas:
     "HeaderNav"
     "MainRouter";
+
+  scroll-behavior: smooth;
+  
 }

@@ -1,7 +1,6 @@
 :root {
   --Desktop-fixed-width: 935px;
 
-
   --Story-poster-width: 614px;
   --Suggestion-width: 293px;
 }
@@ -105,4 +104,7 @@ code {
 
 .icon-search1:before {
   content: "\1f305";
+}
+.icon-chevron-down:before {
+  content: "\e90d";
 }

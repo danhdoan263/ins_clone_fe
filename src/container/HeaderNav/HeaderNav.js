@@ -1,6 +1,6 @@
 import React from "react";
 import "./HeaderNav.css";
-import logo from "assets/Logo.png";
+import logo from "assets/LOGO.png";
 import account_img from "assets/account.png";
 import { Link } from "react-router-dom";
 const HeaderNav = () => {

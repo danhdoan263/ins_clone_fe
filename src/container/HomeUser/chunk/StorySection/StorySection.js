@@ -1,8 +1,8 @@
 import "./StorySection.css";
-import StorySectionItem from "./StorySectionItem/StorySectionItem";
 import { useEffect, useRef } from "react";
 
 import mockData from "data/mockData.js";
+import StorySectionItem from "./chunk/StorySectionItem";
 const StorySection = () => {
   console.log(mockData);
 
@@ -19,21 +19,19 @@ const StorySection = () => {
     };
   }, []);
   return (
-    <>
-      <div className="Story-section">
-        <div className="Story" ref={scroll_x}>
-          {mockData.map((data) => {
-            return (
-              <div>
-                <StorySectionItem avaStory={data.thumbNails} key={data.id} />
-                <p className="Short-name">{data.name}</p>
-              </div>
-            );
-          })}
-        </div>
-        <div className="icon-chevron-right"></div>
+    <div className="Story-section">
+      <div className="Story" ref={scroll_x}>
+        {mockData.map((data) => {
+          return (
+            <div>
+              <StorySectionItem avaStory={data.thumbNails} key={data.id} />
+              <p className="Short-name">{data.name}</p>
+            </div>
+          );
+        })}
       </div>
-    </>
+      <div className="icon-chevron-right"></div>
+    </div>
   );
 };
 

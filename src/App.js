@@ -1,23 +1,16 @@
-// import HeaderNav from "container/HeaderNav/HeaderNav";
 
+import SignIn from "container/SignIn/SignIn";
+import HomePage from 'container/pages';
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-
-import HeaderNav from "container/HeaderNav/HeaderNav";
-import HomeUser from "container/HomeUser/HomeUser";
-import LoginPage from "container/LoginPage/LoginPage";
-import MessUser from "container/MessUser/MessUser";
+import SignUp from "container/SignUp/SignUp";
 function App() {
   return (
     <div className="App">
-      <LoginPage />
-      <HeaderNav />
       <Routes>
-        <Route path="/" element={<HomeUser />} />
-        <Route path="/MessUser" element={<MessUser />} />
-        <Route path="/newPost" />
-        <Route path="/findPeople" />
-        <Route path="/feed" />
+        <Route path="/" element={<SignIn />} />
+        <Route path="/home" element={<HomePage />} />
+        <Route path="signup" element={<SignUp />} />
       </Routes>
     </div>
   );

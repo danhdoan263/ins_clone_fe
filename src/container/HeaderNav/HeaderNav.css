@@ -24,7 +24,7 @@
     color: black;
 }
 
-.wrapper-menu>img {
+.wrapper-menu> a img{
     width: 22px;
     border-radius: 100%;
 }

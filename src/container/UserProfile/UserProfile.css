@@ -1,0 +1,61 @@
+.user-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-body-info {
+    display: flex;
+    gap: 75px;
+}
+
+.info-avatar img {
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+}
+
+.info-maintain {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.maintain-profiler {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.maintain-profiler-username {
+    font-weight: bold;
+}
+
+button {
+    all: unset;
+}
+
+button.button-modifier {
+    color: white;
+    background-color: #696969;
+    padding: 5px 16px;
+    border-radius: 5px;
+}
+
+.icon-option {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.maintain-post-follower {
+    display: flex;
+    gap: 45px;
+}
+
+.maintain-post {}
+
+.maintain-followers {}
+
+.maintain-following {}
+
+.user-body-post {}

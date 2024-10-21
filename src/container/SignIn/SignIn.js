@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./SignIn.css";
 import ButtonField from "components/ButtonField";
 import icoGoogle from "assets/google.svg";
 import frameIphone from "assets/frames.png";
 import logo from "assets/LOGO.png";
-import { loginApi } from "apis/loginApi";
+import { signInAPI } from "apis/signInAPI";
 import { useNavigate } from "react-router-dom";
 const LoginPage = () => {
   const [username, setUsername] = useState('');
@@ -16,9 +16,14 @@ const LoginPage = () => {
   const handleLogin = async (e) => {
     e.preventDefault()
     try {
-      const res = await loginApi(username, password)
+      const res = await signInAPI(username, password)
       console.log(res);
       localStorage.setItem('token', res.token);
+      localStorage.setItem('_id', res._id);
+      localStorage.setItem('email', res.email);
+      localStorage.setItem('username', res.username);
+      localStorage.setItem('full_name', res.full_name);
+      localStorage.setItem('profile_url_img', res.profile_url_img);
       navigate('/home')
     } catch (error) {
       console.error('Đăng nhập thất bại:', error);

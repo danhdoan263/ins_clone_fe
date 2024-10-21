@@ -20,27 +20,30 @@ const HeaderNav = () => {
         {/* -----Router------ */}
 
         <div className="wrapper-menu">
-          <Link to="/">
+          <Link to="/home">
             <div className="icon-Home_fill "></div>
           </Link>
 
-          <Link to="/MessUser">
+          <Link to="/home/MessUser/">
             <div className="icon-Messenger "></div>
           </Link>
 
-          <Link to="/newPost">
+          <Link to="newPost">
             <div className="icon-New_post "></div>
           </Link>
 
-          <Link to="/findPeople">
+          <Link to="findPeople">
             <div className="icon-Find_people "></div>
           </Link>
 
-          <Link to="/feed">
+          <Link to="feed">
             <div className="icon-Activity_Feed "></div>
           </Link>
 
-          <img src={account_img} alt="" />
+          <Link to="/home/userProfile/">
+            <img src={account_img} alt="" />
+          </Link>
+
         </div>
       </div>
     </div>

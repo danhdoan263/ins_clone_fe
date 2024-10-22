@@ -1,6 +1,6 @@
 import React from 'react'
 import './FooterReaction.css'
-const FooterReaction = () => {
+const FooterReaction = ({ postCaption, fullname }) => {
     return (
         <div>
             <div className="footer-reaction">
@@ -17,8 +17,8 @@ const FooterReaction = () => {
             <div className="footer-comment">
                 {/* activeUser === user's poster is comment or first comment added will have active to pin this commented*/}
                 <div className="User-Comment">
-                    <span className="User-name">terrylucas</span>
-                    <span className="comment">Imperdiet in sit rhoncus, eleifend tellus augue lectus potenti pellentesque</span>
+                    <span className="User-name">{fullname}</span>
+                    <span className="comment">{postCaption}</span>
                 </div>
                 <details>
                     <summary>

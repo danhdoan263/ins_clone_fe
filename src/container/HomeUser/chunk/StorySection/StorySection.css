@@ -38,12 +38,14 @@
     overflow-x: auto;
     scroll-behavior: smooth;
 }
-.Story div{
+
+.Story div {
 
     text-align: center;
     font-size: 12px;
 }
-.Short-name{
+
+.Short-name {
     width: 80px;
     white-space: nowrap;
     overflow-x: hidden;

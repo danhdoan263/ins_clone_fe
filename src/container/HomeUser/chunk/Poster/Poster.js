@@ -1,20 +1,20 @@
-import React from "react";
 import "./Poster.css";
-import user from "assets/account.png";
 import PostImgUserName from "container/HomeUser/chunk/Poster/PostImgUserName/PostImgUserName";
 import FooterReaction from "container/HomeUser/chunk/Poster/FooterReaction/FooterReaction";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-const Poster = () => {
+
+const Poster = ({ postInfo }) => {
+
   return (
     <div className="Poster">
       <div className="Poster-Header">
-        <PostImgUserName />
+        <PostImgUserName avatar={postInfo.profile_url_img} fullname={postInfo.fullname} />
       </div>
       <div className="Post-img">
-        <LazyLoadImage src={user} alt="" />
+        <LazyLoadImage src={postInfo.post_image} alt="" />
       </div>
       <div className="Poster-fotter">
-        <FooterReaction />
+        <FooterReaction postCaption={postInfo.post_caption} fullname={postInfo.fullname} />
       </div>
     </div>
   );

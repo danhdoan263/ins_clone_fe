@@ -5,32 +5,35 @@ import Poster from "container/HomeUser/chunk/Poster/Poster";
 import Secondary from "container/HomeUser/chunk/Secondary/Secondary";
 import { loadingPostAPI } from "apis/loadingPostAPI";
 const HomeUser = () => {
-  const [post, setPost] = useState([])
+  const [post, setPost] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await loadingPostAPI()
-      setPost(response.data)
-    }
-    fetchData()
-  }, [])
-  console.log('post', post);
+      const response = await loadingPostAPI();
+      setPost(response.data);
+    };
+    fetchData();
+  }, []);
+  console.log("post", post);
 
   return (
     <div className="Home-user">
       <StorySection />
       <Secondary />
       <div className="Poster-list">
-        {post.map(post => (
-          <Poster key={post._id} postInfo={{
-            fullname: post.full_name,
-            post_image: post.image_url,
-            post_caption: post.caption,
-            profile_url_img: post.profile_url_img
-          }} />
+        {post.map((post) => (
+          <Poster
+            key={post._id}
+            postInfo={{
+              id: post._id,
+              fullname: post.full_name,
+              post_image: post.image_url,
+              post_caption: post.caption,
+              profile_url_img: post.profile_url_img,
+            }}
+          />
         ))}
       </div>
-
     </div>
   );
 };

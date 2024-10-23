@@ -19,14 +19,18 @@
     gap: 22px;
     font-size: 22px;
 }
-.wrapper-menu a{
+
+.wrapper-menu a {
     text-decoration: none;
     color: black;
 }
 
-.wrapper-menu> a img{
+.wrapper-menu>a img {
     width: 22px;
+    height: 22px;
     border-radius: 100%;
+    object-fit: cover;
+    object-position: center;
 }
 
 .wrapper-research {

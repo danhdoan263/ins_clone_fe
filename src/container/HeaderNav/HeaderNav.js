@@ -1,9 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./HeaderNav.css";
 import logo from "assets/LOGO.png";
 import account_img from "assets/account.png";
 import { Link } from "react-router-dom";
 const HeaderNav = () => {
+  const [avatar, setAvatar] = useState(account_img)
+  useEffect(() => {
+    const avatar_url = localStorage.getItem('profile_url_img')
+
+    const CheckAvatar = async () => {
+      if (avatar_url) {
+        setAvatar(avatar_url)
+      }
+    }
+    CheckAvatar()
+  }, [])
+
+
   return (
     <div className="HeaderNav">
       <div className="nav-wrapper">
@@ -41,7 +54,7 @@ const HeaderNav = () => {
           </Link>
 
           <Link to="/home/userProfile/">
-            <img src={account_img} alt="" />
+            <img src={avatar ? avatar : account_img} alt="" />
           </Link>
 
         </div>

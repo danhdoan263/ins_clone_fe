@@ -6,7 +6,7 @@ import { uploadAvatarAPI } from "apis/uploadAvatarAPI";
 
 const UserProfile = () => {
   // State manage username and avatar
-  const [username, setUsername] = useState('');
+  const [username, setUsername] = useState('Anonymus');
   const [avatar, setAvatar] = useState(account);
 
   // get reference from imput avatar handlechange
@@ -24,12 +24,13 @@ const UserProfile = () => {
   const checkAvatar = async () => {
     const Avatar = localStorage.getItem('profile_url_img');
     if (Avatar) {
-      const response = await fetch(Avatar);
-      if (response.ok) {
-        const newBlob = await response.blob();
-        const newAvatar = URL.createObjectURL(newBlob);
-        setAvatar(newAvatar);
-      }
+      // const response = await fetch(Avatar);
+      // if (response.ok) {
+      //   const newBlob = await response.blob();
+      //   const newAvatar = URL.createObjectURL(newBlob);
+      //   setAvatar(newAvatar);
+      // }
+      setAvatar(Avatar)
     }
   };
 

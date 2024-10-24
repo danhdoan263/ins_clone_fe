@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './FooterReaction.css';
-import { getLikePostAPI } from 'apis/getLikePostAPI';
+import { getLikePostAPI, likePostAPI } from 'apis/likePostAPI';
 const FooterReaction = ({ postCaption, fullname, post_id }) => {
   const [like, setLike] = useState(0);
 
@@ -16,15 +16,28 @@ const FooterReaction = ({ postCaption, fullname, post_id }) => {
       }
     };
     getLikePost();
+  }, [like, post_id]);
 
-    console.log(getLikePost);
-  }, []);
-
+  const handleLikePost = () => {
+    const getLikePost = async () => {
+      const token = localStorage.getItem('token');
+      try {
+        const res = await likePostAPI(post_id, token);
+        setLike(res.likes);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    getLikePost();
+  };
   return (
     <div>
       <div className="footer-reaction">
         <div className="left-reaction">
-          <div className="icon-Activity_Feed reaction-size"></div>
+          <div
+            className="icon-Activity_Feed reaction-size"
+            onClick={handleLikePost}
+          ></div>
           <div className="icon-comment reaction-size"></div>
           <div className="icon-share reaction-size"></div>
         </div>

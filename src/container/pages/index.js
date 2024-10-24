@@ -15,11 +15,17 @@ const index = () => {
           path="/"
           element={<HomeUser key={location.pathname + location.search} />}
         />
-        <Route path="MessUser" element={<MessUser />} />
+        <Route
+          path="MessUser"
+          element={<MessUser key={location.pathname + location.search} />}
+        />
         <Route path="newPost" />
         <Route path="findPeople" />
         <Route path="feed" />
-        <Route path="userProfile" element={<UserProfile />} />
+        <Route
+          path="userProfile"
+          element={<UserProfile key={location.pathname + location.search} />}
+        />
       </Routes>
     </div>
   );

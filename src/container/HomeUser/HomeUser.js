@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
-import "./HomeUser.css";
-import StorySection from "container/HomeUser/chunk/StorySection/StorySection";
-import Poster from "container/HomeUser/chunk/Poster/Poster";
-import Secondary from "container/HomeUser/chunk/Secondary/Secondary";
-import { loadingPostAPI } from "apis/loadingPostAPI";
+import React, { useEffect, useState } from 'react';
+import './HomeUser.css';
+import StorySection from 'container/HomeUser/chunk/StorySection/StorySection';
+import Poster from 'container/HomeUser/chunk/Poster/Poster';
+import Secondary from 'container/HomeUser/chunk/Secondary/Secondary';
+import { loadingPostAPI } from 'apis/loadingPostAPI';
 const HomeUser = () => {
   const [post, setPost] = useState([]);
 
@@ -14,7 +14,6 @@ const HomeUser = () => {
     };
     fetchData();
   }, []);
-  console.log("post", post);
 
   return (
     <div className="Home-user">

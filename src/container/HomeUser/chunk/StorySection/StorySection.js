@@ -1,11 +1,9 @@
-import "./StorySection.css";
-import { useEffect, useRef } from "react";
+import './StorySection.css';
+import { useEffect, useRef } from 'react';
 
-import mockData from "data/mockData.js";
-import StorySectionItem from "./chunk/StorySectionItem";
+import mockData from 'data/mockData.js';
+import StorySectionItem from './chunk/StorySectionItem';
 const StorySection = () => {
-  console.log(mockData);
-
   const scroll_x = useRef(null);
   useEffect(() => {
     const scrollStory = scroll_x.current;
@@ -13,9 +11,9 @@ const StorySection = () => {
       evt.preventDefault();
       scrollStory.scrollLeft += evt.deltaY;
     };
-    scrollStory.addEventListener("wheel", handleWheel);
+    scrollStory.addEventListener('wheel', handleWheel);
     return () => {
-      scrollStory.removeEventListener("wheel", handleWheel);
+      scrollStory.removeEventListener('wheel', handleWheel);
     };
   }, []);
   return (

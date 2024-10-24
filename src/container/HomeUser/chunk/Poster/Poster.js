@@ -1,7 +1,6 @@
 import './Poster.css';
 import PostImgUserName from 'container/HomeUser/chunk/Poster/PostImgUserName/PostImgUserName';
 import FooterReaction from 'container/HomeUser/chunk/Poster/FooterReaction/FooterReaction';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const Poster = ({ postInfo }) => {
   return (

@@ -1,12 +1,12 @@
 import './Poster.css';
-import PostImgUserName from 'container/HomeUser/chunk/Poster/PostImgUserName/PostImgUserName';
+import PosterHeader from 'container/HomeUser/chunk/Poster/PosterHeader/PosterHeader';
 import FooterReaction from 'container/HomeUser/chunk/Poster/FooterReaction/FooterReaction';
 
 const Poster = ({ postInfo }) => {
   return (
     <div className="Poster">
       <div className="Poster-Header">
-        <PostImgUserName
+        <PosterHeader
           avatar={postInfo.profile_url_img}
           fullname={postInfo.fullname}
         />

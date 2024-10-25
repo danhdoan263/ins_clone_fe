@@ -1,14 +1,13 @@
-import React, { useEffect, useState } from "react";
-import user from "assets/account.png";
-import "./PostImgUserName.css";
-const PostImgUserName = ({ avatar, fullname }) => {
-
-  const [userImage, setUserImage] = useState(user)
+import React, { useEffect, useState } from 'react';
+import user from 'assets/account.png';
+import './PosterHeader.css';
+const PosterHeader = ({ avatar, fullname }) => {
+  const [userImage, setUserImage] = useState(user);
   useEffect(() => {
     if (avatar) {
-      setUserImage(avatar)
+      setUserImage(avatar);
     }
-  }, [avatar])
+  }, [avatar]);
 
   return (
     <>
@@ -23,4 +22,4 @@ const PostImgUserName = ({ avatar, fullname }) => {
   );
 };
 
-export default PostImgUserName;
+export default PosterHeader;

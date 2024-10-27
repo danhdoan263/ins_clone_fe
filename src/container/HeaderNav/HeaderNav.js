@@ -1,21 +1,28 @@
-import React, { useEffect, useState } from "react";
-import "./HeaderNav.css";
-import logo from "assets/LOGO.png";
-import account_img from "assets/account.png";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import './HeaderNav.css';
+import logo from 'assets/LOGO.png';
+import account_img from 'assets/account.png';
+import { Link } from 'react-router-dom';
+import Modal from 'components/Modal/Modal';
+import CreateNewPost from 'container/CreateNewPost/CreateNewPost';
 const HeaderNav = () => {
-  const [avatar, setAvatar] = useState(account_img)
+  const [avatar, setAvatar] = useState(account_img);
+  const [modal, setModal] = useState(false);
+
   useEffect(() => {
-    const avatar_url = localStorage.getItem('profile_url_img')
+    const avatar_url = localStorage.getItem('profile_url_img');
 
     const CheckAvatar = async () => {
       if (avatar_url) {
-        setAvatar(avatar_url)
+        setAvatar(avatar_url);
       }
-    }
-    CheckAvatar()
-  }, [])
+    };
+    CheckAvatar();
+  }, []);
 
+  const handlePopupCreatePost = () => {
+    setModal(!modal);
+  };
 
   return (
     <div className="HeaderNav">
@@ -41,9 +48,15 @@ const HeaderNav = () => {
             <div className="icon-Messenger "></div>
           </Link>
 
-          <Link to="newPost">
+          <div to="newPost" onClick={handlePopupCreatePost}>
             <div className="icon-New_post "></div>
-          </Link>
+          </div>
+
+          {/* Modal */}
+          <Modal show={modal} onClose={handlePopupCreatePost}>
+            <CreateNewPost />
+          </Modal>
+          {/* endModal */}
 
           <Link to="findPeople">
             <div className="icon-Find_people "></div>
@@ -56,7 +69,6 @@ const HeaderNav = () => {
           <Link to="/home/userProfile/">
             <img src={avatar ? avatar : account_img} alt="" />
           </Link>
-
         </div>
       </div>
     </div>

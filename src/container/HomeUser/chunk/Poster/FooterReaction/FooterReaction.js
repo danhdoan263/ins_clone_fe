@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import './FooterReaction.css';
 import { getLikePostAPI, likePostAPI } from 'apis/likePostAPI';
-const FooterReaction = ({ postCaption, fullname, post_id }) => {
+const FooterReaction = ({ postCaption, fullname, post_id, token }) => {
   const [like, setLike] = useState(0);
   //getLike of the post
-  const token = localStorage.getItem('token');
 
   useEffect(() => {
     const fetchLikePost = async () => {

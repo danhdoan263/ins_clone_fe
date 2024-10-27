@@ -29,3 +29,32 @@
 .Poster-username {
     padding: 14px;
 }
+
+.icon-dots-three-horizontal {
+    position: relative;
+    /* Để popover có thể định vị tương đối với biểu tượng */
+    cursor: pointer;
+}
+
+
+
+.popover {
+    position: absolute;
+    top: 100%;
+    /* Đặt popover ngay bên dưới biểu tượng */
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 8px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 8px 12px;
+    border-radius: 4px;
+    z-index: 1000;
+}
+
+.deletepost {
+    color: #666666;
+    font-weight: bold;
+    cursor: pointer;
+}

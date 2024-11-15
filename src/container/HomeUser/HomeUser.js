@@ -10,6 +10,7 @@ const HomeUser = () => {
   useEffect(() => {
     const fetchData = async () => {
       const response = await loadingPostAPI();
+
       const sortedData = response.data.sort(
         (a, b) => b.created_at - a.created_at
       );
@@ -28,6 +29,7 @@ const HomeUser = () => {
             key={post._id}
             postInfo={{
               id: post._id,
+              user_id: post.user_id,
               fullname: post.full_name,
               post_image: post.image_url,
               post_caption: post.caption,

@@ -43,11 +43,51 @@
 
 .footer-comment {}
 
+
 .footer-comment>details>summary {
     list-style: none;
     cursor: pointer;
     padding: 0 var(--padding-footer);
 
+}
+
+.Show-comment {
+    padding: 0px var(--padding-footer);
+    cursor: pointer;
+    font-style: italic;
+    border-bottom: 1px solid rgba(97, 97, 97, 0.13);
+
+}
+
+.User-comment {
+    padding: 5px var(--padding-footer);
+
+}
+
+.Root-comment {
+    font-weight: bold;
+}
+
+.Comment-action {
+    display: flex;
+    gap: 10px;
+    margin-left: 30px;
+}
+
+.User-comment span {
+    font-weight: lighter;
+    font-style: italic;
+    font-size: 13px;
+    color: grey;
+    cursor: pointer;
+}
+
+.Replies-comment {
+    margin-left: 15px;
+}
+
+.input-replies {
+    margin-left: 30px;
 }
 
 .footer-add-comment {

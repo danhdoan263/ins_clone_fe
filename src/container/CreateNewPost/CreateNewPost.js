@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './CreateNewPost.css';
 import frameShow from 'assets/Rectangle 1.png';
 import LabelCustomButton from 'components/LabelCustomButton/LabelCustomButton ';
 import { postSubmitApi } from 'apis/postSubmitApi';
-const CreateNewPost = () => {
+const CreateNewPost = ({ setModal }) => {
   const [iamgeShow, setIamgeShow] = useState(frameShow);
   const [caption, setCaption] = useState('');
   const [blobImage, setBlobImage] = useState(null);
-  const token = localStorage.getItem('token');
 
   const handleChangeCaption = (e) => {
     setCaption(e.target.value.trim());
@@ -59,12 +58,17 @@ const CreateNewPost = () => {
   const postSubmit = async () => {
     if (caption.length > 0 && blobImage) {
       const formData = new FormData();
+      console.log(blobImage);
+
       formData.append('photo', blobImage);
       formData.append('caption', caption);
-      const res = await postSubmitApi(formData, token);
+      for (let [key, value] of formData.entries()) {
+        console.log(`${key}: ${value}`);
+      }
+      const res = await postSubmitApi(formData);
       console.log('accepted');
-
       console.log(res);
+      setModal((pre) => !pre);
     } else {
       alert('invalid form submit');
     }
@@ -100,7 +104,9 @@ const CreateNewPost = () => {
             <div className="submit-form">
               <LabelCustomButton textshow="Submit">
                 <input
-                  onClick={postSubmit}
+                  onClick={async () => {
+                    await postSubmit();
+                  }}
                   type="button"
                   className="file-input"
                 />

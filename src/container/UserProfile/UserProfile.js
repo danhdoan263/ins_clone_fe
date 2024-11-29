@@ -1,8 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from 'react';
 import './UserProfile.css';
 import account from 'assets/account.png';
-import ButtonField from "components/ButtonField";
-import { uploadAvatarAPI } from "apis/uploadAvatarAPI";
+import ButtonField from 'components/ButtonField';
+import { uploadAvatarAPI } from 'apis/uploadAvatarAPI';
 
 const UserProfile = () => {
   // State manage username and avatar
@@ -30,7 +30,7 @@ const UserProfile = () => {
       //   const newAvatar = URL.createObjectURL(newBlob);
       //   setAvatar(newAvatar);
       // }
-      setAvatar(Avatar)
+      setAvatar(Avatar);
     }
   };
 
@@ -40,10 +40,9 @@ const UserProfile = () => {
     setAvatar(newAvatar);
 
     const formData = new FormData();
-    formData.append("photo", e.target.files[0]);
+    formData.append('photo', e.target.files[0]);
 
-    const getToken = localStorage.getItem('token');
-    const data = await uploadAvatarAPI(formData, getToken);
+    const data = await uploadAvatarAPI(formData);
 
     // update profile_url_img localStorage
     localStorage.setItem('profile_url_img', data.data.filePath);
@@ -73,11 +72,15 @@ const UserProfile = () => {
               <input
                 type="file"
                 ref={fileInputRef}
-                style={{ display: "none" }}
+                style={{ display: 'none' }}
                 onChange={handleChangeAvatar}
               />
-              <ButtonField className='button-modifier'>Edit Profile</ButtonField>
-              <ButtonField className='button-modifier'>View Archive</ButtonField>
+              <ButtonField className="button-modifier">
+                Edit Profile
+              </ButtonField>
+              <ButtonField className="button-modifier">
+                View Archive
+              </ButtonField>
               <span className="icon-option"></span>
             </div>
             <div className="maintain-post-follower">

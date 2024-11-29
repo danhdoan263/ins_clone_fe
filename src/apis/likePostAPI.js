@@ -1,6 +1,6 @@
 import { DOMAIN_MAIN } from 'apis/config';
 import axios from 'axios';
-
+import { headerToken } from 'apis';
 export const getLikePostAPI = async (post_id, token) => {
   const response = await axios.get(
     `${DOMAIN_MAIN}/v1/post/like?post_id=${post_id}`,
@@ -14,18 +14,10 @@ export const getLikePostAPI = async (post_id, token) => {
 };
 
 export const likePostAPI = async (post_id, token) => {
-  console.log(post_id);
-  console.log(token);
-
   const response = await axios.post(
     `${DOMAIN_MAIN}/v1/post/like?post_id=${post_id}`,
     {},
-    {
-      headers: {
-        token: token,
-        'Content-Type': 'application/json',
-      },
-    }
+    headerToken
   );
   console.log(response);
 

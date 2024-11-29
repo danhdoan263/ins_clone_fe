@@ -1,0 +1,45 @@
+.Body-right {}
+
+.box-chat {
+    height: 80%;
+    width: 100%;
+    background-color: bisque;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.user-message {
+    padding: 15px;
+}
+
+.user-message .message {
+    max-width: 300px;
+    max-height: max-content;
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.otherUser {
+    justify-self: flex-end;
+}
+
+.action-user {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.input-text {
+    border-radius: 15px;
+    width: 50%;
+    height: 30px;
+    font-size: 15px;
+    padding: 0 15px;
+}
+
+.btn-submit {
+    background-color: blueviolet;
+    border-radius: 15px;
+    padding: 5px 10px;
+    margin-left: 15px;
+}

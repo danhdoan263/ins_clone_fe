@@ -34,6 +34,7 @@
 }
 
 .wrapper-research {
+    position: relative;
     display: flex;
     max-width: 215px;
     max-height: 28px;
@@ -63,4 +64,34 @@
 
 .wrapper-research input:focus::placeholder {
     color: transparent;
+}
+
+.userList {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    transform: translateY(100%);
+    z-index: 9999;
+    background-color: #ffff;
+}
+
+.userList .Profile-pic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.userList .user img {
+    width: 35px;
+    height: 35px;
+
+}
+
+.button-follow {
+    width: 100%;
+    text-align: center;
+    background-color: #4685d8c9;
+    font-size: small;
+    padding: 5px 0;
+    font-weight: bold;
 }

@@ -1,3 +1,4 @@
+import { headerTokenUploadFile } from 'apis';
 import { DOMAIN_MAIN } from 'apis/config';
 import axios from 'axios';
 
@@ -17,12 +18,7 @@ export const postSubmitApi = async (formData, token) => {
     const response = await axios.post(
       `${DOMAIN_MAIN}/v1/post/create`,
       formData,
-      {
-        headers: {
-          token: token,
-          'Content-Type': 'multipart/form-data',
-        },
-      }
+      headerTokenUploadFile
     );
 
     console.log('Response received:', response);

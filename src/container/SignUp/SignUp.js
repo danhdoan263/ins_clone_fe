@@ -56,7 +56,7 @@ const SignUp = () => {
             }}
           />
           <ButtonField className="cusstomButtonLogin" type="submit">
-            Log in
+            SignIn
           </ButtonField>
 
           {/* LOGIN with Google future */}

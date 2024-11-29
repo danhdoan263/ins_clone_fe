@@ -5,6 +5,7 @@
   overflow: hidden;
   border-right: 1px solid rgba(0, 0, 0, 0.3);
 }
+
 .left-navUser {
   height: 60px;
   display: flex;
@@ -13,18 +14,22 @@
   font-size: 16px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.3);
 }
+
 .left-navUser div {
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 .icon-chevron-down {
   font-size: 20px;
   padding: 6px;
 }
+
 .icon-newMessage {
   font-size: 20px;
 }
+
 .Profile-pic {
   width: 56px;
   height: 56px;
@@ -53,6 +58,13 @@
   padding: 10px;
   overflow-y: auto;
 }
+
 .left-listUser::-webkit-scrollbar {
   display: none;
+}
+
+.left-listUser .user img {
+  width: 56px;
+  height: 56px;
+  object-fit: cover;
 }

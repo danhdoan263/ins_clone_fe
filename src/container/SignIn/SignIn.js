@@ -6,6 +6,7 @@ import frameIphone from 'assets/frames.png';
 import logo from 'assets/LOGO.png';
 import { signInAPI } from 'apis/signInAPI';
 import { useNavigate } from 'react-router-dom';
+import { getUser } from 'apis/messengerAPI';
 
 const LoginPage = () => {
   const [username, setUsername] = useState('');
@@ -18,18 +19,22 @@ const LoginPage = () => {
       const res = await signInAPI(username, password);
       console.log(res);
 
-      // Lưu thông tin đăng nhập vào localStorage
       localStorage.setItem('token', res.token);
       localStorage.setItem('_id', res._id);
       localStorage.setItem('email', res.email);
       localStorage.setItem('username', res.username);
       localStorage.setItem('full_name', res.full_name);
       localStorage.setItem('profile_url_img', res.profile_url_img);
-
-      // Điều hướng đến trang chính
+      if (localStorage.getItem('_id') !== null) {
+        const getListUserFollowed = await getUser();
+        localStorage.setItem(
+          'listUserFollowed',
+          JSON.stringify(getListUserFollowed.data.follower)
+        );
+      }
       navigate('/home');
     } catch (error) {
-      console.error('Đăng nhập thất bại:', error);
+      console.error('login error:', error);
     }
   };
 

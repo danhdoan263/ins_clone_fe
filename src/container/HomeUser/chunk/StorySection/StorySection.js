@@ -1,10 +1,11 @@
 import './StorySection.css';
 import { useEffect, useRef } from 'react';
 
-import mockData from 'data/mockData.js';
 import StorySectionItem from './chunk/StorySectionItem';
 const StorySection = () => {
   const scroll_x = useRef(null);
+  const userStory = JSON.parse(localStorage.getItem('listUserFollowed'));
+
   useEffect(() => {
     const scrollStory = scroll_x.current;
     const handleWheel = (evt) => {
@@ -19,11 +20,11 @@ const StorySection = () => {
   return (
     <div className="Story-section">
       <div className="Story" ref={scroll_x}>
-        {mockData.map((data) => {
+        {userStory.map((data) => {
           return (
-            <div>
-              <StorySectionItem avaStory={data.thumbNails} key={data.id} />
-              <p className="Short-name">{data.name}</p>
+            <div key={data._id}>
+              <StorySectionItem avaStory={data.profile_url_img} id={data._id} />
+              <p className="Short-name">{data.full_name}</p>
             </div>
           );
         })}

@@ -4,7 +4,6 @@ import StorySection from 'container/HomeUser/chunk/StorySection/StorySection';
 import Poster from 'container/HomeUser/chunk/Poster/Poster';
 import Secondary from 'container/HomeUser/chunk/Secondary/Secondary';
 import { loadingPostAPI } from 'apis/loadingPostAPI';
-import { getUser } from 'apis/messengerAPI';
 const HomeUser = () => {
   const [post, setPost] = useState([]);
 
@@ -17,11 +16,6 @@ const HomeUser = () => {
         (a, b) => b.created_at - a.created_at
       );
       setPost(sortedData);
-      const getListUserFollowed = await getUser();
-      localStorage.setItem(
-        'listUserFollowed',
-        JSON.stringify(getListUserFollowed.data.follower)
-      );
     };
     fetchData();
   }, []);

@@ -34,7 +34,7 @@ const BodyRight = ({
       <div className="box-chat">
         {message.map((user) => {
           return (
-            <div className="user-message">
+            <div className="user-message" key={user._id}>
               <div
                 className={`message ${
                   user.sender !== otherUser_id ? 'otherUser' : ''

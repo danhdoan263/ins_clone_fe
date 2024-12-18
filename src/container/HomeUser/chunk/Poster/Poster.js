@@ -4,6 +4,7 @@ import FooterReaction from 'container/HomeUser/chunk/Poster/FooterReaction/Foote
 
 const Poster = ({ postInfo }) => {
   const token = localStorage.getItem('token');
+  const mainUser_id = localStorage.getItem('_id');
 
   return (
     <div className="Poster">
@@ -13,6 +14,8 @@ const Poster = ({ postInfo }) => {
           fullname={postInfo.fullname}
           token={token}
           post_id={postInfo.id}
+          post_user_id={postInfo.user_id}
+          mainUser_id={mainUser_id}
         />
       </div>
       <div className="Post-img">

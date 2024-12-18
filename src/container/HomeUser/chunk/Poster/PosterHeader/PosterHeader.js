@@ -2,7 +2,14 @@ import React, { useEffect, useState } from 'react';
 import user from 'assets/account.png';
 import './PosterHeader.css';
 import { deletePostApi } from 'apis/deletePostApi';
-const PosterHeader = ({ avatar, fullname, token, post_id }) => {
+const PosterHeader = ({
+  avatar,
+  fullname,
+  token,
+  post_id,
+  post_user_id,
+  mainUser_id,
+}) => {
   const [userImage, setUserImage] = useState(user);
   const [showPopover, setShowPopover] = useState(false);
   useEffect(() => {
@@ -27,17 +34,28 @@ const PosterHeader = ({ avatar, fullname, token, post_id }) => {
         <div className="Poster-user">
           <img src={userImage} alt="" />
         </div>
-        <span className="Poster-username">{fullname}</span>
-      </div>
-      <div className="icon-dots-three-horizontal" onClick={togglePopover}>
-        {showPopover && (
-          <div className="popover">
-            <div className="deletepost" onClick={handleDeletePost}>
-              Delete
-            </div>
-          </div>
+        {post_user_id === mainUser_id ? (
+          <span className="Poster-username">
+            <b>{fullname}</b>
+          </span>
+        ) : (
+          <span className="Poster-username">{fullname}</span>
         )}
       </div>
+
+      {post_user_id === mainUser_id ? (
+        <div className="icon-dots-three-horizontal" onClick={togglePopover}>
+          {showPopover && (
+            <div className="popover">
+              <div className="deletepost" onClick={handleDeletePost}>
+                Delete
+              </div>
+            </div>
+          )}
+        </div>
+      ) : (
+        <></>
+      )}
     </>
   );
 };

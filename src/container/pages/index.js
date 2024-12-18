@@ -1,3 +1,4 @@
+import { getUser } from 'apis/messengerAPI';
 import HeaderNav from 'container/HeaderNav/HeaderNav';
 import HomeUser from 'container/HomeUser/HomeUser';
 import MessUser from 'container/MessUser/MessUser';
@@ -7,6 +8,7 @@ import { Route, Routes } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 const index = () => {
   const location = useLocation;
+
   return (
     <div>
       <HeaderNav />

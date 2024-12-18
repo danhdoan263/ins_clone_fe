@@ -4,6 +4,7 @@ import BodyLeft from 'container/MessUser/chunk/BodyLeft';
 import BodyRight from 'container/MessUser/chunk/BodyRight';
 import { checkRoomIdExits } from 'apis/messengerAPI';
 import { DOMAIN_SOCKET } from 'apis';
+import { useLocation, useNavigate } from 'react-router-dom';
 const MessUser = () => {
   const username = localStorage.getItem('username');
   const user_id = localStorage.getItem('_id');
@@ -15,7 +16,8 @@ const MessUser = () => {
   const [sendMessages, setSendMessage] = useState([]);
   const [chatWithUserId, setChatWithUserId] = useState('');
   const [roomId, setRoomId] = useState('');
-  console.log('roomId: ', roomId);
+  const localtion = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const socketConnection = new WebSocket(DOMAIN_SOCKET);
@@ -39,20 +41,22 @@ const MessUser = () => {
     });
 
     socketConnection.addEventListener('message', (event) => {
-      console.log('data from server', JSON.parse(event.data));
       setMessage(JSON.parse(event.data));
     });
-    console.log(socketConnection.readyState);
 
     return () => {
       if (socketConnection.readyState === WebSocket.OPEN) {
         socketConnection.close();
       }
-      console.log(socketConnection.readyState);
     };
-  }, [chatWithUserId, roomId, sendMessages]);
-
+  }, [chatWithUserId, roomId, sendMessages, user_id]);
   useEffect(() => {
+    if (localtion.state !== null && localtion.state.userId.length > 0) {
+      setChatWithUserId(localtion.state.userId);
+      navigate(localtion.pathname, { replace: true, state: null });
+      console.log(localtion);
+    }
+
     const fetchCheckRoomIdExits = async () => {
       if (chatWithUserId === '') {
         return;

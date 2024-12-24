@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import './SignIn.css';
 import ButtonField from 'components/ButtonField';
-import icoGoogle from 'assets/google.svg';
 import frameIphone from 'assets/frames.png';
 import logo from 'assets/LOGO.png';
 import { signInAPI } from 'apis/signInAPI';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { getUser } from 'apis/messengerAPI';
 
 const LoginPage = () => {
@@ -19,22 +18,31 @@ const LoginPage = () => {
       const res = await signInAPI(username, password);
       console.log(res);
 
-      localStorage.setItem('token', res.token);
-      localStorage.setItem('_id', res._id);
-      localStorage.setItem('email', res.email);
-      localStorage.setItem('username', res.username);
-      localStorage.setItem('full_name', res.full_name);
-      localStorage.setItem('profile_url_img', res.profile_url_img);
-      if (localStorage.getItem('_id') !== null) {
-        const getListUserFollowed = await getUser();
-        localStorage.setItem(
-          'listUserFollowed',
-          JSON.stringify(getListUserFollowed.data.follower)
-        );
+      if (res.token) {
+        localStorage.setItem('token', res.token);
+        localStorage.setItem('_id', res._id);
+        localStorage.setItem('email', res.email);
+        localStorage.setItem('username', res.username);
+        localStorage.setItem('full_name', res.full_name);
+        localStorage.setItem('profile_url_img', res.profile_url_img);
       }
-      navigate('/home');
+
+      getFollower();
     } catch (error) {
       console.error('login error:', error);
+    }
+  };
+
+  const getFollower = async () => {
+    try {
+      const response = await getUser();
+      localStorage.setItem(
+        'listUserFollowed',
+        JSON.stringify(response.data.follower)
+      );
+      navigate('/home');
+    } catch (error) {
+      console.error('Error fetching user data:', error);
     }
   };
 
@@ -63,12 +71,9 @@ const LoginPage = () => {
             <hr />
             <span>or</span>
           </div>
-          <div className="other-login">
-            <img src={icoGoogle} alt="Google Icon" />
-            <ButtonField className="customButton">
-              Continue with Google
-            </ButtonField>
-          </div>
+          <Link to="SignUp">
+            <div className="other-login">SignUp</div>
+          </Link>
         </form>
       </div>
     </div>

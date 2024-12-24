@@ -4,9 +4,21 @@ import StorySection from 'container/HomeUser/chunk/StorySection/StorySection';
 import Poster from 'container/HomeUser/chunk/Poster/Poster';
 import Secondary from 'container/HomeUser/chunk/Secondary/Secondary';
 import { loadingPostAPI } from 'apis/loadingPostAPI';
+import { getUser } from 'apis/messengerAPI';
 const HomeUser = () => {
   const [post, setPost] = useState([]);
-
+  useEffect(() => {
+    const getFollower = async () => {
+      if (localStorage.getItem('_id') !== null) {
+        const getListUserFollowed = await getUser();
+        localStorage.setItem(
+          'listUserFollowed',
+          JSON.stringify(getListUserFollowed.data.follower)
+        );
+      }
+    };
+    getFollower();
+  }, []);
   useEffect(() => {
     const fetchData = async () => {
       //call to get post

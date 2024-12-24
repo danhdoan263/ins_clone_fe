@@ -9,6 +9,7 @@ import { searchUserAPI } from 'apis/searchAPI';
 import UserTarget from 'components/UserTarget/UserTarget';
 import ButtonField from 'components/ButtonField';
 import { followUserAPI, unFollowUserAPI } from 'apis/followAPI';
+import ShowSignOut from './chunk/ShowSignOut';
 const HeaderNav = () => {
   const [searchtext, setSearchtext] = useState('');
   const [userList, setUserList] = useState([]);
@@ -16,18 +17,16 @@ const HeaderNav = () => {
   const [modal, setModal] = useState(false);
   const isFirstRender = useRef(true);
   const [followChange, setFollowChange] = useState(0);
+  const [showSignOut, setShowSignOut] = useState(false);
+
   const user_id = localStorage.getItem('_id');
-  console.log(userList);
 
   useEffect(() => {
     const avatar_url = localStorage.getItem('profile_url_img');
 
-    const CheckAvatar = async () => {
-      if (avatar_url) {
-        setAvatar(avatar_url);
-      }
-    };
-    CheckAvatar();
+    if (avatar_url) {
+      setAvatar(avatar_url);
+    }
   }, []);
 
   useEffect(() => {
@@ -168,10 +167,25 @@ const HeaderNav = () => {
           </Link>
 
           <Link to="/home/userProfile/">
-            <img src={avatar ? avatar : account_img} alt="" />
+            <img
+              src={avatar ? avatar : account_img}
+              alt=""
+              onMouseOver={() => {
+                setShowSignOut(true);
+              }}
+            />
           </Link>
         </div>
       </div>
+      {showSignOut && (
+        <div
+          onMouseLeave={() => {
+            setShowSignOut(false);
+          }}
+        >
+          <ShowSignOut onClick={onclick} />
+        </div>
+      )}
     </div>
   );
 };

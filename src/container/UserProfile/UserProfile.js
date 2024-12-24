@@ -1,18 +1,15 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './UserProfile.css';
-import account from 'assets/account.png';
+import account from 'assets/account.png'; // Đảm bảo đường dẫn đúng
 import ButtonField from 'components/ButtonField';
 import { uploadAvatarAPI } from 'apis/uploadAvatarAPI';
 
 const UserProfile = () => {
-  // State manage username and avatar
   const [username, setUsername] = useState('Anonymus');
   const [avatar, setAvatar] = useState(account);
 
-  // get reference from imput avatar handlechange
   const fileInputRef = useRef(null);
 
-  // get user info localStorage
   const getUserInfo = () => {
     const fullname = localStorage.getItem('full_name');
     if (fullname) {
@@ -24,36 +21,44 @@ const UserProfile = () => {
   const checkAvatar = async () => {
     const Avatar = localStorage.getItem('profile_url_img');
     if (Avatar) {
-      // const response = await fetch(Avatar);
-      // if (response.ok) {
-      //   const newBlob = await response.blob();
-      //   const newAvatar = URL.createObjectURL(newBlob);
-      //   setAvatar(newAvatar);
-      // }
-      setAvatar(Avatar);
+      try {
+        const response = await fetch(Avatar);
+        if (response.ok) {
+          setAvatar(Avatar);
+        } else {
+          setAvatar(account);
+        }
+      } catch (error) {
+        console.error('Error fetching avatar:', error);
+        setAvatar(account);
+      }
+    } else {
+      setAvatar(account);
     }
   };
 
-  // process avatar when changed avtar direct client
   const handleChangeAvatar = async (e) => {
-    const newAvatar = URL.createObjectURL(e.target.files[0]);
-    setAvatar(newAvatar);
+    if (e.target.files.length > 0) {
+      const newAvatar = URL.createObjectURL(e.target.files[0]);
+      setAvatar(newAvatar);
 
-    const formData = new FormData();
-    formData.append('photo', e.target.files[0]);
+      const formData = new FormData();
+      formData.append('photo', e.target.files[0]);
 
-    const data = await uploadAvatarAPI(formData);
-
-    // update profile_url_img localStorage
-    localStorage.setItem('profile_url_img', data.data.filePath);
+      try {
+        const data = await uploadAvatarAPI(formData);
+        localStorage.setItem('profile_url_img', data.data.filePath);
+      } catch (error) {
+        console.error('Error uploading avatar:', error);
+        setAvatar(newAvatar);
+      }
+    }
   };
 
-  //  handle click input action from fileInputRef
   const handleClick = () => {
     fileInputRef.current.click();
   };
 
-  // useEffect chạy khi component mount để lấy thông tin người dùng và avatar
   useEffect(() => {
     getUserInfo();
     checkAvatar();

@@ -95,3 +95,20 @@
     padding: 5px 0;
     font-weight: bold;
 }
+
+.sign-out-button {
+    position: absolute;
+    top: 45px;
+    transform: translateX(-120%);
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    font-size: small;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.247);
+    cursor: pointer;
+}
+
+.sign-out-button:hover {
+    background-color: #ffffff;
+}

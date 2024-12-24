@@ -5,7 +5,7 @@ import icoGoogle from 'assets/google.svg';
 import frameIphone from 'assets/frames.png';
 import logo from 'assets/LOGO.png';
 import { signUpAPI } from 'apis/signUpAPI';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 const SignUp = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
@@ -16,6 +16,7 @@ const SignUp = () => {
     e.preventDefault();
     const res = await signUpAPI(username, password, email, full_name);
     if (res.acknowledged) {
+      alert('sign up successful');
       navigate('/');
     }
   };
@@ -64,12 +65,9 @@ const SignUp = () => {
             <hr />
             <span>or</span>
           </div>
-          <div className="other-login">
-            <img src={icoGoogle} alt="" />
-            <ButtonField className="cusstonButton">
-              Continue with google
-            </ButtonField>
-          </div>
+          <Link to="/">
+            <div className="other-login">SignIn</div>
+          </Link>
         </form>
       </div>
     </div>
